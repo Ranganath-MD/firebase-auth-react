@@ -14,7 +14,7 @@ const Home = () => {
             }}>
                 <img
                     src={FirebaseImage}
-                    alt="firebase-image"
+                    alt="firebase-----"
                     width="100%"/>
             </div>
             <h2 style={{

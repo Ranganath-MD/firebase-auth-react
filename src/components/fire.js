@@ -1,7 +1,7 @@
 import firebase from "firebase"
 
 const firebaseConfig = {
-    apiKey: "AIzaSyB07pinfOsoVLkaVNJbtNPilJqap7G0eDc",
+    apiKey: "firebase_api_key",
     authDomain: "fireauth-react.firebaseapp.com",
     databaseURL: "https://fireauth-react.firebaseio.com",
     projectId: "fireauth-react",
