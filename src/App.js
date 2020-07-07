@@ -16,7 +16,7 @@ const App = () => {
   useEffect(() => {
     authListener()
   }, [isAuth, user])
-
+  
   const authListener = () => {
     fire.auth().onAuthStateChanged((user) => {
       if (user) {

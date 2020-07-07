@@ -2,12 +2,35 @@ import React, { useState } from 'react'
 import logo from '../logo.svg';
 import { useForm } from "react-hook-form";
 import "./form.css"
-import { fire } from './fire';
 import { Redirect } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+// firebase imports
+import { fire } from './fire';
+import firebase from "firebase"
+import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth"
 
 const Form = ({ isAuth }) => {
     const [loading, setLoading] = useState(false)
     const { errors, register, handleSubmit } = useForm();
+
+    // initializing the auth providers
+    const uiConfig = {
+        signInFlow: "popup",
+        signInSuccessUrl: '/dashboard',
+        signInOptions: [
+            firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+            firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+            firebase.auth.GithubAuthProvider.PROVIDER_ID
+        ],
+        callbacks: {
+            signInSuccessWithAuthResult: function (authResult, redirectUrl) {
+                console.log(authResult)
+                return false;
+            },
+        }
+    }
 
     const onSubmit = data => {
         setLoading(true)
@@ -21,7 +44,8 @@ const Form = ({ isAuth }) => {
                         setLoading(false)
                     })
                     .catch(err => {
-                        console.log(err)
+                        toast.error(err.message);
+                        setLoading(false)
                     })
             })
     }
@@ -30,12 +54,30 @@ const Form = ({ isAuth }) => {
         return <Redirect to="/dashboard" />
     }
 
-
     return (
         <div className="container">
+            <ToastContainer
+                position="top-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
             <div >
                 <img src={logo} className="App-logo" alt="logo" />
             </div>
+
+            {/* Providers */}
+            <StyledFirebaseAuth
+                uiConfig={uiConfig}
+                firebaseAuth={fire.auth()}
+            />
+            <div className="separator"></div>
+            {/* login with email and password  */}
             <form
                 onSubmit={handleSubmit(onSubmit)}
                 className="form"

@@ -12,16 +12,21 @@
 }
 
 input {
-    width: 250px;
+    width: 260px;
     border: none;
     height: 40px;
+    color: white;
     margin-top: 20px;
     outline: none;
     padding: 0px 20px;
+    background: #182642;
+    box-shadow: 5px 5px 10px #121d32, -5px -5px 10px #1e2f52;
 }
-input::placeholder{
+
+input::placeholder {
     font-size: 16px;
 }
+
 .input-container {
     height: 80px;
 }
@@ -40,4 +45,23 @@ input::placeholder{
     margin: 0px;
     color: white;
     font-size: 12px;
+}
+
+.separator {
+    width: 300px;
+    border-bottom: solid 1px;
+    position: relative;
+    margin: 30px 0px;
+    color: white;
+}
+
+.separator::before {
+    content: "Sign in with an Email";
+    position: absolute;
+    left: 20%;
+    top: -10px;
+    color: black;
+    font-weight: 600;
+    background-color: #fff;
+    padding: 0px 10px;
 }
