@@ -3,7 +3,7 @@
 Demo: https://fireauth-react.web.app/register
 
 <div style="width: 600px">
-    <img src="/src/screenshot.png" alt="screenshot" width="100%">
+    <img src="/src/screenshot.jpg" alt="screenshot" width="100%">
 </div>
 
 ### features
