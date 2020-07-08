@@ -1,0 +1,28 @@
+.container {
+    display: flex;
+    min-height: 60vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-container {
+    width: 100px;
+    height: 100px;
+}
+
+.image-container img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.container h1 {
+    font-size: 3rem;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.container p {
+    font-size: 1.2rem;
+    color: #ffffff;
+}

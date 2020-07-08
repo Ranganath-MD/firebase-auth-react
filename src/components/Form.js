@@ -26,7 +26,6 @@ const Form = ({ isAuth }) => {
         ],
         callbacks: {
             signInSuccessWithAuthResult: function (authResult, redirectUrl) {
-                console.log(authResult)
                 return false;
             },
         }

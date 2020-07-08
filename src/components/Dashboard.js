@@ -1,26 +1,20 @@
 import React from 'react'
-
+import "./dashboard.css"
 
 const Dashboard = ({ user }) => {
     return (
-        <div style={{
-            display: `flex`,
-            minHeight: `60vh`,
-            flexDirection: `column`,
-            alignItems: `center`,
-            justifyContent: `center`
-        }}>
-            <h2 style={{
-                fontSize: `2.5rem`,
-                fontWeight: 600,
-                textAlign: `center`,
-                color: `white`
-            }}>You are Signed in as </h2>
-            <p style={{
-                fontWeight: 600,
-                textAlign: `center`,
-                color: `white`
-            }}>{user && user.email}</p>
+        <div className="container">
+            {
+                user.photoURL === null ? null :
+                <div className="image-container">
+                    <img src={user && user.photoURL} alt="avatar" />
+                </div>
+            }
+            {
+                user.displayName === null ?
+                    <p> You are Signed in as </p> : <h1>{user && user.displayName}</h1>
+            }
+            <p>{user && user.email}</p>
         </div>
     )
 }
